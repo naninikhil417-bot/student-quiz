@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudySpark AI — Modern Gamified Learning for Classes 6–10</title>
+  <meta name="description" content="StudySpark AI is your smart learning companion for Classes 6–10. Master Mathematics, Science, Social Studies, and Languages with interactive concepts, formula bank, practice questions, gamified quizzes, and weak topic detection.">
+  <meta name="keywords" content="StudySpark, School learning, Class 6, Class 7, Class 8, Class 9, Class 10, CBSE, ICSE, State Boards, Math Formulas, Science Quizzes, Interactive Learning">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div id="app-root">
+    <!-- Main Top Navigation Bar -->
+    <header class="navbar">
+      <div class="navbar-container">
+        <!-- Logo -->
+        <a href="#home" class="brand-logo" onclick="window.appRouter.navigate('home')">
+          <span class="spark-icon">⚡</span>
+          <span>StudySpark<span style="color: var(--secondary);">AI</span></span>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="nav-links-desktop">
+          <button class="nav-link-btn active" data-view="home" onclick="window.appRouter.navigate('home')">
+            🏠 Home
+          </button>
+          <button class="nav-link-btn" data-view="classes" onclick="window.appRouter.navigate('classes')">
+            🎓 Classes
+          </button>
+          <button class="nav-link-btn" data-view="subjects" onclick="window.appRouter.navigate('subjects')">
+            📚 Subjects
+          </button>
+          <button class="nav-link-btn" data-view="formulas" onclick="window.appRouter.navigate('formulas')">
+            📐 Formula Bank
+          </button>
+          <button class="nav-link-btn" data-view="practice" onclick="window.appRouter.navigate('practice')">
+            🧠 Practice
+          </button>
+          <button class="nav-link-btn" data-view="quiz" onclick="window.appRouter.navigate('quiz')">
+            🎯 Quiz Arena
+          </button>
+          <button class="nav-link-btn" data-view="challenge" onclick="window.appRouter.navigate('challenge')">
+            🔥 Daily
+          </button>
+          <button class="nav-link-btn" data-view="analytics" onclick="window.appRouter.navigate('analytics')">
+            📊 Progress
+          </button>
+        </nav>
+
+        <!-- Right Header Actions (Search, Stats, Class Picker, Ask AI) -->
+        <div class="nav-actions">
+          <!-- Global Search trigger button -->
+          <button class="stat-pill" title="Global Search (Ctrl+K)" onclick="window.appRouter.openSearchModal()" style="color: var(--text-muted); cursor: pointer;">
+            <span>🔍</span>
+            <span style="font-size: 0.8rem; font-weight: 600;">Search <kbd style="font-size: 0.7rem; background: var(--bg-card-subtle); padding: 2px 4px; border-radius: 4px; border: 1px solid var(--border-color);">⌘K</kbd></span>
+          </button>
+
+          <!-- Class Quick Switcher -->
+          <select id="nav-class-select" class="class-picker-select" onchange="window.appRouter.selectClass(this.value)">
+            <option value="6">Class 6</option>
+            <option value="7">Class 7</option>
+            <option value="8">Class 8</option>
+            <option value="9" selected>Class 9</option>
+            <option value="10">Class 10</option>
+          </select>
+
+          <!-- Gamified XP Counter -->
+          <div class="stat-pill xp-pill" id="nav-xp-counter" title="Total XP Points">
+            240 XP
+          </div>
+
+          <!-- Streak Counter -->
+          <div class="stat-pill streak-pill" id="nav-streak-counter" title="Active Study Streak">
+            3 🔥
+          </div>
+
+          <!-- Bookmarks Button -->
+          <button class="stat-pill" onclick="window.appRouter.navigate('bookmarks')" title="My Saved Content">
+            ⭐ Saved
+          </button>
+
+          <!-- Ask AI Action Button -->
+          <button class="ask-ai-nav-btn" onclick="window.appRouter.navigate('ai')">
+            <span>🤖</span>
+            <span>Ask AI</span>
+          </button>
+
+          <!-- Profile Avatar Button -->
+          <button class="stat-pill" onclick="window.appRouter.navigate('profile')" title="Student Profile" style="padding: 6px 10px; font-size: 1.1rem;">
+            🦊
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Root Viewport -->
+    <main class="main-content-container">
+      <div id="view-container">
+        <!-- Rendered dynamically by app router -->
+      </div>
+    </main>
+
+    <!-- Mobile Bottom Navigation Bar -->
+    <nav class="bottom-nav-mobile">
+      <button class="bottom-nav-item active" data-view="home" onclick="window.appRouter.navigate('home')">
+        <span class="bottom-icon">🏠</span>
+        <span>Home</span>
+      </button>
+      <button class="bottom-nav-item" data-view="subjects" onclick="window.appRouter.navigate('subjects')">
+        <span class="bottom-icon">📚</span>
+        <span>Learn</span>
+      </button>
+      <button class="bottom-nav-item" data-view="practice" onclick="window.appRouter.navigate('practice')">
+        <span class="bottom-icon">🧠</span>
+        <span>Practice</span>
+      </button>
+      <button class="bottom-nav-item" data-view="quiz" onclick="window.appRouter.navigate('quiz')">
+        <span class="bottom-icon">🎯</span>
+        <span>Quiz</span>
+      </button>
+      <button class="bottom-nav-item" data-view="ai" onclick="window.appRouter.navigate('ai')">
+        <span class="bottom-icon">🤖</span>
+        <span>Ask AI</span>
+      </button>
+      <button class="bottom-nav-item" data-view="profile" onclick="window.appRouter.navigate('profile')">
+        <span class="bottom-icon">👤</span>
+        <span>Profile</span>
+      </button>
+    </nav>
+  </div>
+
+  <!-- Master Application Script -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
